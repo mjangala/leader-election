@@ -1,4 +1,4 @@
-package com.kwe.portal.leaderelection.statemachine;
+package com.demo.leader.election.statemachine;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;

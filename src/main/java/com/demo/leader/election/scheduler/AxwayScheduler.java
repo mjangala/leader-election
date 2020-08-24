@@ -1,7 +1,7 @@
-package com.kwe.portal.leaderelection.axway.scheduler;
+package com.demo.leader.election.scheduler;
 
-import com.kwe.portal.leaderelection.statemachine.LeaderEvent;
-import com.kwe.portal.leaderelection.statemachine.LeaderState;
+import com.demo.leader.election.statemachine.LeaderEvent;
+import com.demo.leader.election.statemachine.LeaderState;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,7 +21,7 @@ public class AxwayScheduler {
     public void axwayQueueListener(){
         LeaderState state = stateMachine.getState().getId();
         if(state.compareTo(LeaderState.LEADER) == 0){
-            log.info("Checking Ax-way HeartBeat");
+            log.info("I am the Leader.....");
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.kwe.portal.leaderelection;
+package com.demo.leader.election;
 
 import lombok.Getter;
 import org.springframework.boot.web.context.WebServerInitializedEvent;

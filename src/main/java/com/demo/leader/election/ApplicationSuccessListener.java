@@ -1,7 +1,7 @@
-package com.kwe.portal.leaderelection;
+package com.demo.leader.election;
 
-import com.kwe.portal.leaderelection.statemachine.LeaderEvent;
-import com.kwe.portal.leaderelection.statemachine.LeaderState;
+import com.demo.leader.election.statemachine.LeaderEvent;
+import com.demo.leader.election.statemachine.LeaderState;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -26,7 +26,7 @@ public class ApplicationSuccessListener implements ApplicationListener<Applicati
     @Qualifier("leaderStateMachine")
     private StateMachine<LeaderState, LeaderEvent> stateMachine;
 
-    private static final String PATH = "/services/if-edi";
+    private static final String PATH = "/services/leader-election";
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -35,8 +35,8 @@ public class ApplicationSuccessListener implements ApplicationListener<Applicati
     }
 
     private void checkIfLeader() {
-        CuratorFramework client = null;
-        LeaderLatch example = null;
+        CuratorFramework client;
+        LeaderLatch example;
         String zkConnString = "127.0.0.1:2181";
         try {
             client = CuratorFrameworkFactory.newClient(zkConnString, new ExponentialBackoffRetry(1000, 3));
@@ -54,7 +54,5 @@ public class ApplicationSuccessListener implements ApplicationListener<Applicati
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 }

@@ -1,4 +1,4 @@
-package com.kwe.portal.leaderelection.statemachine;
+package com.demo.leader.election.statemachine;
 
 public enum LeaderState {
     LEADER,
